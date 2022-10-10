@@ -190,7 +190,6 @@ class GildedRoseTest {
         assertEquals(0, item.quality);
     }
 
-    @Disabled
     @Test
     void testConjuredItemBeforeSellDate() {
         Item item = updateQualityForItemWith(5, 10, "Conjured Mana Cake");
@@ -198,7 +197,6 @@ class GildedRoseTest {
         assertEquals(8, item.quality);
     }
 
-    @Disabled
     @Test
     void testConjuredItemAtZeroQuality() {
         Item item = updateQualityForItemWith(5, 0, "Conjured Mana Cake");
@@ -206,7 +204,6 @@ class GildedRoseTest {
         assertEquals(0, item.quality);
     }
 
-    @Disabled
     @Test
     void testConjuredItemOnSellDate() {
         Item item = updateQualityForItemWith(0, 10, "Conjured Mana Cake");
@@ -214,7 +211,6 @@ class GildedRoseTest {
         assertEquals(6, item.quality);
     }
 
-    @Disabled
     @Test
     void testConjuredItemOnSellDateAtZeroQuality() {
         Item item = updateQualityForItemWith(0, 0, "Conjured Mana Cake");
@@ -222,7 +218,6 @@ class GildedRoseTest {
         assertEquals(0, item.quality);
     }
 
-    @Disabled
     @Test
     void testConjuredItemAfterSellDate() {
         Item item = updateQualityForItemWith(-10, 10, "Conjured Mana Cake");
@@ -230,7 +225,6 @@ class GildedRoseTest {
         assertEquals(6, item.quality);
     }
 
-    @Disabled
     @Test
     void testConjuredItemAfterSellDateAtZeroQuality() {
         Item item = updateQualityForItemWith(-10, 0, "Conjured Mana Cake");
