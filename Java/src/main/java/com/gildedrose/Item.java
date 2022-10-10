@@ -8,11 +8,13 @@ public class Item {
 
     public int quality;
 
-    public Item(String name, int daysRemaining, int quality) {
+    public Item(String name, int daysRemaining, int quality) { // qualityChangeByDayBeforeSell qualityChangeAfterSell
         this.name = name;
         this.daysRemaining = daysRemaining;
         this.quality = quality;
     }
+
+    // updateQuality; updates daysRemaining and quality
 
    @Override
    public String toString() {
