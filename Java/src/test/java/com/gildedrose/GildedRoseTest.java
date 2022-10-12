@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class GildedRoseTest {
 
     Item updateQualityForItemWith(int daysRemaining, int quality, String name) {
-        Item[] items = new Item[] { new Item(name, daysRemaining, quality) };
-        GildedRose app = new GildedRose(items);
+        GildedRose app = new GildedRose();
+        app.addItem(name, daysRemaining, quality);
         app.updateQuality();
-        return items[0];
+        return app.items.get(0);
     }
 
     @Test
@@ -234,15 +234,13 @@ class GildedRoseTest {
 
     @Test
     void testSeveralItems() {
-        Item[] items = new Item[]{
-            new Item("normal", 5, 10),
-            new Item("Aged Brie", 3, 10)
-        };
-        GildedRose app = new GildedRose(items);
+        GildedRose app = new GildedRose();
+        app.addItem("normal", 5, 10);
+        app.addItem("Aged Brie", 3, 10);
         app.updateQuality();
-        assertEquals(9, app.items[0].quality);
-        assertEquals(4, app.items[0].daysRemaining);
-        assertEquals(11, app.items[1].quality);
-        assertEquals(2, app.items[1].daysRemaining);
+        assertEquals(9, app.items.get(0).quality);
+        assertEquals(4, app.items.get(0).daysRemaining);
+        assertEquals(11, app.items.get(1).quality);
+        assertEquals(2, app.items.get(1).daysRemaining);
     }
 }

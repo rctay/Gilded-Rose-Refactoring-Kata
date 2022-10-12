@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class NormalItem extends BaseItem {
+public class NormalItem extends Item {
     public static int qualityChangeBeforeSell = -1;
     public static int qualityChangeAfterSell = -2;
 

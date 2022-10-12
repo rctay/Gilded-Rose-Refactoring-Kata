@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class ConjuredItem extends BaseItem {
+public class ConjuredItem extends Item {
 
     public static int qualityChangeBeforeSell = -2;
     public static int qualityChangeAfterSell = -4;

@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class Item {
+public abstract class Item {
 
     public String name;
 
@@ -8,13 +8,13 @@ public class Item {
 
     public int quality;
 
-    public Item(String name, int daysRemaining, int quality) { // qualityChangeByDayBeforeSell qualityChangeAfterSell
+    public Item(String name, int daysRemaining, int quality) {
         this.name = name;
         this.daysRemaining = daysRemaining;
         this.quality = quality;
     }
 
-    // updateQuality; updates daysRemaining and quality
+    abstract void updateQuality();
 
    @Override
    public String toString() {

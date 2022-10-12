@@ -1,5 +1,8 @@
 package com.gildedrose;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Single-responsibility
  * Dependency Inversion
@@ -9,37 +12,34 @@ package com.gildedrose;
  */
 
 class GildedRose {
-    Item[] items;
+    public List<Item> items;
 
-    public GildedRose(Item[] items) {
-        this.items = items;
+    public GildedRose() {
+        this.items = new ArrayList<>();
+    }
+
+    public void addItem(String name, int daysRemaining, int quality) {
+
+        Item item = null;
+
+        if (name.equals("normal")) {
+            item = new NormalItem(name, daysRemaining, quality);
+        } else if (name.equals("Aged Brie")) {
+            item = new AgedBrieItem(name, daysRemaining, quality);
+        } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
+            item = new SulfurasItem(name, daysRemaining, quality);
+        } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            item = new BackstagePassesItem(name, daysRemaining, quality);
+        } else if (name.equals("Conjured Mana Cake")) {
+            item = new ConjuredItem(name, daysRemaining, quality);
+        }
+
+        items.add(item);
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            updateItemQuality(items[i]);
+        for (Item item : items) {
+            item.updateQuality();
         }
-    }
-
-    private void updateItemQuality(Item item) {
-
-
-        BaseItem baseItem = null;
-
-        if (item.name.equals("normal")) {
-            baseItem = new NormalItem(item.name, item.daysRemaining, item.quality);
-        } else if (item.name.equals("Aged Brie")) {
-            baseItem = new AgedBrieItem(item.name, item.daysRemaining, item.quality);
-        } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            baseItem = new SulfurasItem(item.name, item.daysRemaining, item.quality);
-        } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            baseItem = new BackstagePassesItem(item.name, item.daysRemaining, item.quality);
-        } else if (item.name.equals("Conjured Mana Cake")) {
-            baseItem = new ConjuredItem(item.name, item.daysRemaining, item.quality);
-        }
-
-        baseItem.updateQuality();
-        item.daysRemaining = baseItem.daysRemaining;
-        item.quality = baseItem.quality;
     }
 }
